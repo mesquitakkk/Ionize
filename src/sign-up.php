@@ -15,6 +15,7 @@
 
     <?php
         include_once('template/navbar-travel.php');
+        include_once('back/util-functions.php');
     ?>
 
     <div class="container" id="box">
@@ -25,9 +26,16 @@
                 </div>
             </div>
             <div class="form-group">
+                <div class="center">
+                    <!-- <--?php 
+                        print_r($_SESSION);
+                    ?> -->
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="row">
                     <div class="col-12">
-                        <input type="text" name="username" class="form-control" placeholder="Nome completo" required>
+                        <input type="text" name="user_name" class="form-control" placeholder="Nome completo" required <?php verify_field("ionize_user_name"); ?>>
                     </div>
                 </div>
             </div>
@@ -35,10 +43,13 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <input type="date" name="userbirthday" class="form-control" required>
+                        <input type="date" name="user_birthday" class="form-control" required <?php verify_field("ionize_user_birthday"); ?>>
                     </div>
                     <div class="col">
-                        <input type="text" name="usercpf" class="form-control" placeholder="CPF" required onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+                        <input type="text" name="user_cpf" class="form-control" placeholder="CPF" required onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" <?php verify_field("ionize_user_cpf"); ?>>
+                        <?php 
+                            verify_field_already("cpf");
+                        ?>
                     </div>
                 </div>
             </div>
@@ -46,10 +57,13 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <input type="email" name="useremail" class="form-control" placeholder="E-mail" required>
+                        <input type="email" name="user_email" class="form-control" placeholder="E-mail" required <?php verify_field("ionize_user_email"); ?>>
+                        <?php
+                            verify_field_already("email");
+                        ?>
                     </div>
                     <div class="col">
-                        <input type="password" name="userpassword" class="form-control" placeholder="Senha" required>
+                        <input type="password" name="user_password" class="form-control" placeholder="Senha" required <?php verify_field("ionize_user_password"); ?>>
                     </div>
                 </div>
             </div>
@@ -60,22 +74,22 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-9">
-                        <input type="text" name="address_street" class="form-control" placeholder="Rua" required>
+                        <input type="text" name="address_street" class="form-control" placeholder="Rua" required <?php verify_field("ionize_address_street"); ?>>
                     </div>
                     <div class="col-3">
-                        <input type="number" name="address_number" min=0 class="form-control" placeholder="Rua" required>
+                        <input type="number" name="address_number" min=0 class="form-control" placeholder="Rua" required <?php verify_field("ionize_address_number"); ?>>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-5">
-                        <input type="text" name="address_city" class="form-control" placeholder="Cidade">
+                        <input type="text" name="address_city" class="form-control" placeholder="Cidade" <?php verify_field("ionize_address_city"); ?>>
                     </div>
                     <div class="col-3">
-                        <input type="text" name="address_state" class="form-control" placeholder="Estado">
+                        <input type="text" name="address_state" class="form-control" placeholder="Estado" <?php verify_field("ionize_address_state"); ?>>
                     </div>
                     <div class="col-4">
-                        <input type="text" name="address_cep" class="form-control" placeholder="CEP" onkeydown="javascript: fMasc( this, mCEP );" maxlength="9">
+                        <input type="text" name="address_cep" class="form-control" placeholder="CEP" onkeydown="javascript: fMasc( this, mCEP );" maxlength="9" <?php verify_field("ionize_address_cep"); session_unset(); ?>>
                     </div>
                 </div>
             </div>

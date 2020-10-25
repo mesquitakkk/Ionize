@@ -14,7 +14,9 @@
   <body>
 
     <?php
+        session_start();
         include_once('template/navbar-travel.php');
+        include_once('back/util-functions.php');
     ?>
 
     <div class="container" id="box">
@@ -23,15 +25,23 @@
               <h1>Entre!</h1>
             </div>
             <div class="form-group">
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter email" required>
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter email" required <?php verify_field('ionize_sign_up_email') ?>>
             </div>
             <div class="form-group">
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
             </div>
-            <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div> -->
+            <?php
+              if(isset($_SESSION['ionize_sign_up_status'])){
+                  echo('
+                  <div class="center">
+                      <div class="alert alert-success">
+                          '.$_SESSION["ionize_sign_up_status"].'
+                      </div>
+                  </div>
+                  ');
+                  session_unset();
+              }
+            ?>
             <div class="center">
               <input type="submit" class="btn btn-dark" id="submit-btn" value="Enviar"></input><br>
             </div>   
