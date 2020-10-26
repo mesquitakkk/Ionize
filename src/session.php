@@ -21,11 +21,11 @@
 
     <div class="container" id="box">
         <form action="back/try-login.php" method="POST" class="box-form">
-            <div class="center" id="title">
-              <h1>Entre!</h1>
+            <div class="group-form">
+              <label class="title">Entre ou faça seu cadastro!</label>
             </div>
             <div class="form-group">
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter email" required <?php verify_field('ionize_sign_up_email') ?>>
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter email" required <?php verify_field('ionize_sign_up_email') or verify_field('email') ?>>
             </div>
             <div class="form-group">
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
@@ -39,11 +39,20 @@
                       </div>
                   </div>
                   ');
-                  session_unset();
               }
+              if(isset($_SESSION['error'])){
+                echo('
+                <div class="center">
+                    <div class="alert alert-danger">
+                        '.$_SESSION["error"].'
+                    </div>
+                </div>
+                ');
+              }
+              $_SESSION = Array();
             ?>
             <div class="center">
-              <input type="submit" class="btn btn-dark" id="submit-btn" value="Enviar"></input><br>
+              <input type="submit" class="btn btn-dark" id="submit-btn" value="Entrar"></input>
             </div>   
         </form>
         <div class="center">

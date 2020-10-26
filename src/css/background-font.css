@@ -1,5 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@300&family=Staatliches&display=swap');
 body {
-    background-color: #C5C3C6;
-    font-family: 'Roboto', sans-serif;
+    background-color: #94c3ff;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Grandstander', cursive;
+}
+li {
+    list-style-type: none;
+}
+#nav-balance {
+    color: #b6fcd5;
 }
