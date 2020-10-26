@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Out-2020 às 05:54
+-- Tempo de geração: 26-Out-2020 às 07:18
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.9
 
@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `ionize`
 --
+
+CREATE DATABASE ionize IF NOT EXISTS;
+USE ionize;
 
 -- --------------------------------------------------------
 
@@ -40,7 +43,8 @@ INSERT INTO `tb_category` (`pk_cat_id`, `name`) VALUES
 (1, 'moda'),
 (2, 'eletrônicos'),
 (3, 'móveis'),
-(4, 'ferramentas');
+(4, 'ferramentas'),
+(5, 'esporte e lazer');
 
 -- --------------------------------------------------------
 
@@ -51,7 +55,7 @@ INSERT INTO `tb_category` (`pk_cat_id`, `name`) VALUES
 CREATE TABLE `tb_credentials` (
   `pk_cred_id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `pswd` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `fk_user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -59,9 +63,13 @@ CREATE TABLE `tb_credentials` (
 -- Extraindo dados da tabela `tb_credentials`
 --
 
-INSERT INTO `tb_credentials` (`pk_cred_id`, `email`, `pswd`, `fk_user_id`) VALUES
+INSERT INTO `tb_credentials` (`pk_cred_id`, `email`, `password`, `fk_user_id`) VALUES
 (1, 'lucas@gmail.com', 'lucas123', 1),
-(2, 'admin@ionize.com', 'admin', 2);
+(2, 'admin@ionize.com', 'admin', 2),
+(3, 'connor@hotmail.com', 'moralpanic', 9),
+(4, 'fred@hotmail.com', 'fRed123', 10),
+(5, 'tony@hotmail.com', 'tony123', 11),
+(6, 'alicevivi28@hotmail.com', '8515', 12);
 
 -- --------------------------------------------------------
 
@@ -130,8 +138,12 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`pk_user_id`, `username`, `cpf`, `birthday`, `user_address`, `balance`) VALUES
-(1, 'Lucas Mesquita de Souza', '123.456.789.10', '2001-07-03', 'Rua ABC, 1003, São Paulo - SP, 12345-123', '105.00'),
-(2, 'admin', '111.111.111.11', '2000-11-11', 'Admin street, 111, Admin City, AD, 11111-111', '111.11');
+(1, 'Lucas Mesquita de Souza', '123.456.789-10', '2001-07-03', 'Rua ABC, 1003, São Paulo - SP, 12345-123', '105.00'),
+(2, 'admin', '111.111.111-11', '2000-11-11', 'Admin street, 111, Admin City, AD, 11111-111', '111.11'),
+(9, 'CONNOR MASON', '981.273.098-12', '1987-11-21', 'Rua Moral Panic, 13, São Paulo-SP, 13131-313', '0.00'),
+(10, 'FRED MERCURY', '192.361.236-98', '1946-09-05', 'Rua Bohemian Rhapsody, 99, São Paulo-SP, 23761-231', '0.00'),
+(11, 'TONY STARK', '236.401.827-31', '1975-02-03', 'Rua Vingadores, 213, São Bernardo Do Campo-SP, 18273-691', '0.00'),
+(12, 'ALICE VITóRIA MESQUITA DE JESUS', '634.523.472-37', '2011-12-28', 'Rua Basílio Villarino, 83, São Paulo-SP, 05846-140', '0.00');
 
 --
 -- Índices para tabelas despejadas
@@ -182,13 +194,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT de tabela `tb_category`
 --
 ALTER TABLE `tb_category`
-  MODIFY `pk_cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pk_cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tb_credentials`
 --
 ALTER TABLE `tb_credentials`
-  MODIFY `pk_cred_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pk_cred_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tb_product`
@@ -206,7 +218,7 @@ ALTER TABLE `tb_transaction`
 -- AUTO_INCREMENT de tabela `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `pk_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pk_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restrições para despejos de tabelas
