@@ -3,7 +3,7 @@ label {
 }
 #box {
     width: 40%;
-    margin-top: 100px;
+    margin-top: 70px;
     margin-bottom: 50px;
     background-color: #1985A1;
     padding: 20px;
@@ -43,14 +43,4 @@ label {
     font-size: 28px;
     margin-top: 10px;
     margin-bottom: 30px;
-}
-a, a:visited {
-    color: white;
-}
-a:hover {
-    color: #7ca0c0;
-}
-.dropdown-menu {
-    background-color: #7ca0c0;
-    box-shadow: 1px 1px black;
 }

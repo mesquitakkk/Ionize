@@ -1,5 +1,8 @@
 <?php
-    session_start();
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    // fixed-top
     include_once('back/conn.php');
     include_once('back/util-functions.php');
 
@@ -19,7 +22,7 @@
     select_all('tb_credentials', 'pk_cred_id', $_SESSION['cred_id']);
 
     echo('
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse -lg" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -50,7 +53,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="user-profile.php">Informações Básicas</a>
-                <a class="dropdown-item" href="#">Carteira Virtual</a>
+                <a class="dropdown-item" href="virtual-wallet.php">Carteira Virtual</a>
                 <a class="dropdown-item" href="#">Endereços</a>
                 <a class="dropdown-item" href="#">Histórico de Compras</a>
                 <a class="dropdown-item" href="#">Produtos Anunciados</a>
@@ -59,7 +62,7 @@
             </div>
         </li>
         <a class="nav-link" href="session.php">Anunciar</a>
-        <a id="nav-balance" href="#"> Saldo: R$ '.$_SESSION["ionize_tb_user_balance"].'</a>
+        <a id="nav-balance" href="virtual-wallet.php"> Saldo: R$ '.$_SESSION["ionize_tb_user_balance"].'</a>
         <a class="nav-link" href="user-profile.php">'.$_SESSION["ionize_tb_user_username"].'</a>
     </div>
     </nav>');

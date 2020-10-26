@@ -1,8 +1,10 @@
 <?php
-    session_start();
+    if (!isset($_SESSION)){
+        session_start();
+    }
     include_once('back/conn.php');
     include_once('back/util-functions.php');
-
+    // fixed-top
     // querying categories 
     $sqlSelCategory = "SELECT * FROM tb_category;";
     $querySelCategory = mysqli_query($conn, $sqlSelCategory);
@@ -15,7 +17,7 @@
     }
 
     echo('
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse -lg" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">

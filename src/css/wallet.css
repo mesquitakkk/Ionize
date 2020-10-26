@@ -1,0 +1,38 @@
+.box-wallet {
+    width: 40%;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f1ea86;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 5px 5px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#box-wallet-balance {
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#balance {
+    color: #3f8d49;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

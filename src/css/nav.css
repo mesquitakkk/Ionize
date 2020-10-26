@@ -1,0 +1,10 @@
+a, a:visited, a:active {
+    color: white;
+}
+a:hover {
+    color: #7ca0c0;
+}
+.dropdown-menu {
+    background-color: #7ca0c0;
+    box-shadow: 1px 1px black;
+}
