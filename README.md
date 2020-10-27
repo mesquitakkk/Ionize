@@ -8,7 +8,7 @@ O Projeto Ionize consiste em um site de compra e vendas de produtos.
 
 ## TI95 - Grupo 1  
 
--Carlos Alberto  
+-[Carlos Alberto](https://github.com/kyller2k)    
 -Gustavo Trajano  
 -Lucas Krebs  
 -[Lucas Mesquita](https://github.com/mesquitakkk)  
