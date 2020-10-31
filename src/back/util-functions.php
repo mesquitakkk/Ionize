@@ -24,6 +24,14 @@
         }
         return $string;
     }
+    function dropdown_item_option($categories) {
+        $string = '';
+        foreach($categories as $key => $value){
+            $_POST['category_id_'.$key] = $key;
+            $string = $string . '<option value="'.$value["pk_cat_id"].'">'.$value["name"].'</option>';
+        }
+        echo($string);
+    }
     // SELECT * FROM any table and add values to _SESSION
     function select_all($table_name, $primary_key_name, $primary_key_value) {
         include('conn.php');
@@ -40,6 +48,15 @@
         }else{
             echo("SQL Error: ". mysqli_error($conn));
         }
+    }
+    function select_ids($conn, $table_name, $id_name, $id_user) {
+        $sql = "SELECT ".$id_name." FROM ".$table_name." WHERE fk_salesman_id='".$id_user."';";
+        $array = Array();
+        $query = mysqli_query($conn, $sql);
+        while($fetch = mysqli_fetch_assoc($query)){
+            array_push($array, $fetch["pk_prod_id"]);
+        }
+        return $array;
     }
     // limpa sessão
     function session_clear() {
@@ -60,6 +77,11 @@
 
         // Por último, destrói a sessão
         session_destroy();
+    }
+    // change a file extension to png
+    function change_to_png($filename) {
+        $array = explode(".", $filename);
+        return $array[0] . "." . "png";
     }
     
 ?>
