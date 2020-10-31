@@ -10,7 +10,7 @@
         <div class="product-card">
             <div class="row justify-content-center">
                 <div class="col align-self-center">
-                    <img src="../users/'.$fetch["img_dir"].'" alt="#" width="100px">
+                    <img src="users/'.$fetch["img_dir"].'" alt="#" width="100px">
                 </div>
                 <div class="col-4 align-self-center">
                     <label>'.$fetch["name"] .'</label>

@@ -23,7 +23,7 @@
         echo(mysqli_insert_id($conn));
 
         $file_name = mysqli_insert_id($conn) . ".png";
-        $path = "../../users/" . $_SESSION["user_id"] . "//prod/" . $file_name;
+        $path = "../users/" . $_SESSION["user_id"] . "//prod/" . $file_name;
 
         if(move_uploaded_file($_FILES["img"]["tmp_name"], $path)){
             echo("<br>success upload");
