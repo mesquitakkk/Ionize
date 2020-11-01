@@ -29,6 +29,23 @@
             </div>
         </div>
         <br>');
+        // print_r($fetch);
+    }
+
+    function prod_card_sale($conn, $prod_id) {
+        $sql = "SELECT name, img_dir, price FROM tb_product WHERE pk_prod_id='".$prod_id."';";
+        $query = mysqli_query($conn, $sql);
+        $fetch = mysqli_fetch_assoc($query);
+        $card = '
+        <div class="card">
+            <img class="card-img-top" src="users/'.$fetch["img_dir"].'" alt="Card image cap">
+            <div class="card-body">
+                <div class="card-title">'.$fetch["name"].'</div>
+                <p class="card-text"><small class="text-muted">R$ '.$fetch["price"].'</small></p>
+            </div>
+        </div>
+        ';
+        return $card;
+        // print_r($fetch);
     }
 ?>
-

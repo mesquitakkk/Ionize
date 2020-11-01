@@ -91,6 +91,7 @@
     echo("<br>");
     print_r($_SESSION);
     echo("</br>");
+    print_r($categories);
 ?>
 
 <!-- Optional JavaScript -->

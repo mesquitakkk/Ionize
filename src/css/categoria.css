@@ -1,0 +1,52 @@
+.box-container {
+    background-color: rgb(97, 238, 168);
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border-radius: 30px;
+    box-shadow: 3px 3px rgb(58, 71, 55);
+    padding: 20px;
+}
+.col {
+    /* background-color: red; */
+    /* border: 1px black solid; */
+    margin: 0px 20px;
+}
+.card {
+    margin-bottom: 20px;
+}
+.card-img-top {
+    width: auto;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.card-title {
+    text-align: center;
+    height: 70px;
+    width: 190px;
+    /* background-color: yellow; */
+    overflow: hidden;
+}
+.btn .btn-primary {
+    margin-left: auto;
+    margin-right: auto;
+}
+.card-text {
+    text-align: center;
+}
+.card-body {
+    /* background-color: red; */
+    height: 130px;
+}
+.title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.alert {
+    margin-left: auto;
+    margin-right: auto;
+}
