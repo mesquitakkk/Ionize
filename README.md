@@ -10,7 +10,7 @@ O Projeto Ionize consiste em um site de compra e vendas de produtos.
 
 -[Carlos Alberto](https://github.com/kyller2k)    
 -Gustavo Trajano  
--Lucas Krebs  
+-[Lucas Krebs](https://github.com/KrebsDev)  
 -[Lucas Mesquita](https://github.com/mesquitakkk)  
 
 ***
