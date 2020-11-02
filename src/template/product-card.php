@@ -7,6 +7,7 @@
         // print_r($fetch);
         
         echo('
+        <a href="#">
         <div class="product-card">
             <div class="row justify-content-center">
                 <div class="col align-self-center">
@@ -28,6 +29,7 @@
                 </div>
             </div>
         </div>
+        </a>
         <br>');
         // print_r($fetch);
     }
