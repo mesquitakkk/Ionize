@@ -14,10 +14,10 @@
 <link rel="stylesheet" href="css/announced.css">
 <body>
 <?php
-    // include_once("template/navbar-aut.php");
-    // include_once("back/util-functions.php");
-    // include_once("back/conn.php");
-    // $productsIds = select_ids($conn, "tb_product", "pk_prod_id", $_SESSION["ionize_tb_credentials_fk_user_id"]);
+    include_once("template/navbar-aut.php");
+    include_once("back/util-functions.php");
+    include_once("back/conn.php");
+    $productsIds = select_ids($conn, "tb_product", "pk_prod_id", $_SESSION["ionize_tb_credentials_fk_user_id"]);
 ?>
 
 <div class="container-box">
