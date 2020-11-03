@@ -71,8 +71,8 @@
                     // echo("<p>Credenciais: SUCCESS</p>");
                     $_SESSION["ionize_sign_up_status"] = "Usuário cadastrado! Entre!";
                     $_SESSION["ionize_sign_up_email"] = $user_email;
-                    mkdir("../../users/" . $fk_id) or die("error");
-                    mkdir("../../users/".$fk_id."/prod") or die("error");
+                    mkdir("../users/" . $fk_id) or die("error");
+                    mkdir("../users/".$fk_id."/prod") or die("error");
                     header("location:../session.php");
                 }else {
                     echo("<p>Credenciais: ERROR</p>");
