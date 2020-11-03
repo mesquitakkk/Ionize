@@ -19,7 +19,7 @@
     include_once('template/product-card.php');
     include_once('back/conn.php');
 
-    $categoryId = $_GET["prod_id"];
+    $categoryId = $_GET["cat_id"];
 ?>
 
 <div class="box-container">

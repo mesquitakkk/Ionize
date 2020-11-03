@@ -20,7 +20,7 @@
         $string = '';
         foreach($categories as $key => $value){
             $_POST['category_id_'.$key] = $key;
-            $string = $string . '<a class="dropdown-item" href="category.php?prod_id='.$value["pk_cat_id"].'">'.$value['name'].'</a>';
+            $string = $string . '<a class="dropdown-item" href="category.php?cat_id='.$value["pk_cat_id"].'">'.$value['name'].'</a>';
         }
         return $string;
     }

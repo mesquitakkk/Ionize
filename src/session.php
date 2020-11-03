@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/nav.css">
   </head>
   <body>
-
     <?php
         if (!isset($_SESSION)){
           session_start();

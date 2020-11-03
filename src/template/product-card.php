@@ -7,7 +7,6 @@
         // print_r($fetch);
         
         echo('
-        <a href="#">
         <div class="product-card">
             <div class="row justify-content-center">
                 <div class="col align-self-center">
@@ -29,23 +28,24 @@
                 </div>
             </div>
         </div>
-        </a>
         <br>');
         // print_r($fetch);
     }
 
     function prod_card_sale($conn, $prod_id) {
-        $sql = "SELECT name, img_dir, price FROM tb_product WHERE pk_prod_id='".$prod_id."';";
+        $sql = "SELECT name, img_dir, price, fk_category_id FROM tb_product WHERE pk_prod_id='".$prod_id."';";
         $query = mysqli_query($conn, $sql);
         $fetch = mysqli_fetch_assoc($query);
         $card = '
+        <a href="prod-details.php?cat_id='.$fetch["fk_category_id"].'&prod_id='.$prod_id.'" class="hidden-link">
         <div class="card">
             <img class="card-img-top" src="users/'.$fetch["img_dir"].'" alt="Card image cap">
             <div class="card-body">
                 <div class="card-title">'.$fetch["name"].'</div>
-                <p class="card-text"><small class="text-muted">R$ '.$fetch["price"].'</small></p>
+                <p class="card-text"><small class="text-success">R$ '.$fetch["price"].'</small></p>
             </div>
         </div>
+        </a>
         ';
         return $card;
         // print_r($fetch);

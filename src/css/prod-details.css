@@ -1,0 +1,64 @@
+#prod_img_box, #prod_data_box {
+    background-color: rgb(67, 118, 194);
+    width: 400px;
+    height: 450px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 20px; 
+    box-shadow: 3px 3px black;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.title, .desc, .link, #input-box, #price-box {
+    width: 100%;
+    margin-bottom: 4px;
+}
+.title {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    height: 70px;
+    overflow: hidden;
+}
+.desc {
+    text-align: justify;
+    color: black;
+    height: 200px;
+    overflow: auto;
+    padding: 0px 20px;
+}
+.link {
+    overflow: hidden;
+    
+    height: 25px;
+    padding: 0px 20px;
+}
+#inputQtd, #btnBuy {
+    width: 45%;
+    float: left;
+    margin: 0px 5px;
+}
+#input-box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.row {
+    margin-right: 0;
+}
+#price {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    margin-bottom: 0px;
+}
+* {
+    /* border: black solid 1px */
+}
