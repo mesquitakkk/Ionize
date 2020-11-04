@@ -1,7 +1,7 @@
 #prod_img_box, #prod_data_box {
     background-color: rgb(67, 118, 194);
     width: 400px;
-    height: 450px;
+    height: 500px;
     margin-right: 10px;
     margin-top: 10px;
     border-radius: 20px;
@@ -46,9 +46,11 @@
 #input-box {
     align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    /* border: 1px solid black; */
+    height: 100px;
 }
 .row {
     margin-right: 0;
@@ -59,6 +61,7 @@
     color: black;
     margin-bottom: 0px;
 }
-* {
-    /* border: black solid 1px */
+#input-box form input {
+    margin: 5px auto;
+    width: 100%;
 }

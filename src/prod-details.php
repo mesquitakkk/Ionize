@@ -58,8 +58,11 @@
             <div id="price">R$ <?php echo($fetchProd['price']); ?></div>
         <div>
             <div id="input-box">
-                <input type="number" min="1" max="<?php echo($fetchProd['stock']); ?>" id="inputQtd" placeholder="Quantidade" class="form-control">
-                <button class="btn btn-success" id="btnBuy">Comprar</button>
+                <form action="buy-product.php" method="GET">
+                    <input type="text" name="prod_id" value="<?php echo($fetchProd['pk_prod_id']); ?>" hidden>
+                    <input type="number" name="qtd" min="1" max="<?php echo($fetchProd['stock']); ?>" id="inputQtd" placeholder="Quantidade" class="form-control" required>
+                    <input type="submit" class="btn btn-success" id="btnBuy" value="comprar">
+                </form>
             </div>
         </div>
     </div>
