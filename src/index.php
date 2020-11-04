@@ -22,8 +22,8 @@
     }
 
     // include_once('back/conn.php');
-    echo "<br><br><br>";
-    print_r($_SESSION);
+    // echo "<br><br><br>";
+    // print_r($_SESSION);
 ?>
 
 <!-- Optional JavaScript -->

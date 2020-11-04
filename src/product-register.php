@@ -15,9 +15,16 @@
 <body>
 <?php
     session_start();
-    include_once('template/navbar-aut.php');
-    include_once('back/conn.php');
     include_once('back/util-functions.php');
+
+    if (isset($_SESSION["ionize_tb_credentials_email"]) and isset($_SESSION["ionize_tb_credentials_password"])) {
+        include_once("template/navbar-aut.php");
+        include_once('template/navbar-aut.php');
+        include_once('back/conn.php');
+    } else {
+        session_clear();
+        header('location:index.php');
+    }
 
     $sqlSelCategory = "SELECT * FROM tb_category;";
     $querySelCategory = mysqli_query($conn, $sqlSelCategory);

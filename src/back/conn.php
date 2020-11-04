@@ -1,10 +1,10 @@
 <?php
 
     // db var's
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ionize";
+    $servername = "den1.mysql3.gear.host";
+    $username = "piti95ionize";
+    $password = "Vl1lh~?U0Gx9";
+    $dbname = "piti95ionize";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 

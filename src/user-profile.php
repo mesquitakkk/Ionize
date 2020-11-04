@@ -18,8 +18,10 @@
 <body>
 <?php
     session_start();
+    if (!isset($_SESSION["ionize_tb_credentials_email"]) and !isset($_SESSION["ionize_tb_credentials_password"])) {
+        header('location:index.php');
+    } 
     include_once('template/navbar-aut.php');
-    // session_start();
 ?>
 
 <div class="box">
@@ -87,12 +89,7 @@
     </div>
 </div>
 
-<?php
-    echo("<br>");
-    print_r($_SESSION);
-    echo("</br>");
-    print_r($categories);
-?>
+
 
 <!-- Optional JavaScript -->
 <script>
@@ -112,3 +109,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<!-- <-?php
+    echo("<br>");
+    print_r($_SESSION);
+    echo("</br>");
+    print_r($categories);
+?> -->

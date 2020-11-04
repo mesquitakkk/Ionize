@@ -18,10 +18,12 @@
 
 <?php
     session_start();
+
     if (isset($_SESSION["ionize_tb_credentials_email"])){
         include_once('template/navbar-aut.php');
     } else {
         include_once('template/navbar-travel.php');
+        $_SESSION['ionize_tb_user_pk_user_id'] = 0;
     }
     include_once('template/product-card.php');
     $categoryId = $_GET["cat_id"];

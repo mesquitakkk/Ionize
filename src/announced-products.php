@@ -14,10 +14,17 @@
 <link rel="stylesheet" href="css/announced.css">
 <body>
 <?php
-    include_once("template/navbar-aut.php");
     include_once("back/util-functions.php");
-    include_once("back/conn.php");
-    $productsIds = select_ids($conn, "tb_product", "pk_prod_id", $_SESSION["ionize_tb_credentials_fk_user_id"]);
+    session_start();
+
+    if (isset($_SESSION["ionize_tb_credentials_email"]) and isset($_SESSION["ionize_tb_credentials_password"])) {
+        include_once("template/navbar-aut.php");
+        include_once("back/conn.php");
+        $productsIds = select_ids($conn, "tb_product", "pk_prod_id", $_SESSION["ionize_tb_credentials_fk_user_id"]);
+    } else {
+        session_clear();
+        header('location:index.php');
+    }
 ?>
 
 <div class="container-box">
@@ -41,7 +48,7 @@
 </div>
 
 <?php
-    print_r($productsIds);
+    // print_r($productsIds);
 ?>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

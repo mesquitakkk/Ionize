@@ -14,9 +14,13 @@
   </head>
   <body>
     <?php
-        if (!isset($_SESSION)){
-          session_start();
-        }
+        session_start();
+        
+        if (isset($_SESSION["ionize_tb_credentials_email"]) and isset($_SESSION["ionize_tb_credentials_password"])) {
+          header('location:back/logout.php');
+        } 
+
+        // print_r($_SESSION);
         include_once('template/navbar-travel.php');
         include_once('back/util-functions.php');
     ?>

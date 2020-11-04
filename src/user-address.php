@@ -17,6 +17,9 @@
     if(!isset($_SESSION)) {
         session_start();
     }
+    if(!isset($_SESSION["user_id"])) {
+        header('location:index.php');
+    }
     include_once("template/navbar-aut.php");
     include_once('template/address-form.php');
     $address = getAddress($conn);

@@ -1,5 +1,5 @@
 <?php
     include("util-functions.php");
     session_clear();
-    header("location:../session.php");
+    header("location:../index.php");
 ?>
