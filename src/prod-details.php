@@ -78,7 +78,7 @@
                 $fetchGetText = mysqli_fetch_assoc($queryGetText);
 
                 echo('<h1 class="title">Produtos Semelhantes</h1>');
-                $sqlGetProdIds = "SELECT pk_prod_id FROM tb_product WHERE fk_salesman_id!='".$_SESSION['ionize_tb_user_pk_user_id']."' AND fk_category_id='".$categoryId."' AND pk_prod_id!='".$_GET['prod_id']."';";
+                $sqlGetProdIds = "SELECT pk_prod_id FROM tb_product WHERE fk_salesman_id!='".$_SESSION['ionize_tb_user_pk_user_id']."' AND fk_category_id='".$categoryId."' AND pk_prod_id!='".$_GET['prod_id']."' and stock>0;";
                 $queryGetProdIds = mysqli_query($conn, $sqlGetProdIds);
                 $prod_ids = Array();
 

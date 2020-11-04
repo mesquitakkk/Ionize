@@ -38,7 +38,7 @@
                 $fetchGetText = mysqli_fetch_assoc($queryGetText);
 
                 echo('<h1 class="title">'.$fetchGetText["name"].'</h1>');
-                $sqlGetProdIds = "SELECT pk_prod_id FROM tb_product WHERE fk_salesman_id!='".$_SESSION['ionize_tb_user_pk_user_id']."' and fk_category_id='".$categoryId."';";
+                $sqlGetProdIds = "SELECT pk_prod_id FROM tb_product WHERE fk_salesman_id!='".$_SESSION['ionize_tb_user_pk_user_id']."' and fk_category_id='".$categoryId."' and stock>0;";
                 $queryGetProdIds = mysqli_query($conn, $sqlGetProdIds);
                 $prod_ids = Array();
 
