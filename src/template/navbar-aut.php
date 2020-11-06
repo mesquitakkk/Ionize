@@ -55,7 +55,7 @@
                 <a class="dropdown-item" href="user-profile.php">Informações Básicas</a>
                 <a class="dropdown-item" href="virtual-wallet.php">Carteira Virtual</a>
                 <a class="dropdown-item" href="user-address.php">Endereços</a>
-                <a class="dropdown-item" href="#">Histórico de Compras</a>
+                <a class="dropdown-item" href="purchases-historic.php">Histórico de Compras</a>
                 <a class="dropdown-item" href="announced-products.php">Produtos Anunciados</a>
                 <a class="dropdown-item" href="#">Histórico de Vendas</a>
                 <a class="dropdown-item" href="back/logout.php">Sair</a>

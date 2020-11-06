@@ -34,11 +34,15 @@
     // get transactions ids
     $sqlTranIds = "SELECT * FROM tb_transaction WHERE fk_buyer_id='".$_SESSION['user_id']."'";
     $queryTranIds = mysqli_query($conn, $sqlTranIds);
-    while($fetchTranIds = mysqli_fetch_assoc($queryTranIds)) {
-        // array_push($tranIds, $fetchTranIds['pk_tran_id']);
-        purchases_historic($fetchTranIds, $conn);
+    if ($queryTranIds->num_rows == 0) {
+        echo (  '<div class="alert alert-danger">Nenhuma compra foi encontrada :c</div>');
+    } else {
+        while($fetchTranIds = mysqli_fetch_assoc($queryTranIds)) {
+            // array_push($tranIds, $fetchTranIds['pk_tran_id']);
+            purchases_list($fetchTranIds, $conn);
+        }
     }
-    print_r($fetchTranIds);
+    
     // if (!$fetchTranIds) {
     //     echo "Você ainda não realizou compras!";
     // }

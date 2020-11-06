@@ -85,10 +85,12 @@
     }
     
     // purchases historic
-    function purchases_historic($tran, $conn) {
+    function purchases_list($tran, $conn) {
         // get product datas
         $sqlProd = "SELECT name, img_dir, fk_salesman_id FROM tb_product WHERE pk_prod_id='".$tran['fk_product_id']."'";
         $queryProd = mysqli_query($conn, $sqlProd);
+        
+        
         $fetchProd = mysqli_fetch_assoc($queryProd);
         // get salesman name
         $sqlSalesman = "SELECT username FROM tb_user WHERE pk_user_id='".$fetchProd['fk_salesman_id']."';";
@@ -118,7 +120,7 @@
         }
         // print_r($tran);
         // echo "<br><br>";
-        // print_r($fetchProd);
+        
         // echo "<br><br>";
         // print_r($fetchSalesman);
         echo('<div class="row justify-content-center '.$bg_color.'" id="purchases-box">
@@ -153,4 +155,9 @@
                 </div>
             </div>');
     }
+
+    function sales_list() {
+
+    }
+
 ?>

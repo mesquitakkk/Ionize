@@ -37,3 +37,7 @@ h1 {
     margin-top: 10px;
     font-style: oblique;
 }
+.alert {
+    width: 40%;
+    margin: 0px auto;
+}
