@@ -1,0 +1,39 @@
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+#purchases-box {
+    width: 700px;
+    height: 270px;
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: 4px 4px black;
+}
+.bg-yellow {
+    background-color: rgb(255, 255, 93);
+}
+.bg-green {
+    background-color: rgb(125, 255, 125);
+}
+
+.row {
+    padding: 0px 10px;
+    /* border: 1px solid black; */
+}
+.img-field {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 150px;
+}
+.date {
+    margin-top: 10px;
+}
+.situation {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    font-style: oblique;
+}

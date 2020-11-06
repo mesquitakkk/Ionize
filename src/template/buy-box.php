@@ -7,7 +7,7 @@
     } ?>
     <div class="row" id="top-row">
         <div class="col" id="prod-img">
-            <img src="users/1/prod/1.png" height="150px">
+            <img src="users/<?php echo($fetchProd['img_dir']); ?>" height="150px">
         </div>
         <div class="col">
             <div class="row justify-content-center" id="small-values">

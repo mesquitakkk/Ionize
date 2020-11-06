@@ -84,4 +84,73 @@
         return $array[0] . "." . "png";
     }
     
+    // purchases historic
+    function purchases_historic($tran, $conn) {
+        // get product datas
+        $sqlProd = "SELECT name, img_dir, fk_salesman_id FROM tb_product WHERE pk_prod_id='".$tran['fk_product_id']."'";
+        $queryProd = mysqli_query($conn, $sqlProd);
+        $fetchProd = mysqli_fetch_assoc($queryProd);
+        // get salesman name
+        $sqlSalesman = "SELECT username FROM tb_user WHERE pk_user_id='".$fetchProd['fk_salesman_id']."';";
+        $querySalesman = mysqli_query($conn, $sqlSalesman);
+        $fetchSalesman = mysqli_fetch_assoc($querySalesman);
+
+        if ($tran['status'] == 'to_send'){
+            $status_class = "transit";
+            $status_text = "Preparando o envio";
+            $button = "";
+            $bg_color = "bg-yellow";
+        } elseif ($tran['status'] == 'in_transit') {
+            $status_class = "transit";
+            $status_text = "Em trânsito";
+            $button =  '<form action="back/confirm-receivement.php" method="POST">
+                            <div class="row justify-content-center">
+                            <input type="text" name="tran_id" value="'.$tran["pk_tran_id"].'" hidden>
+                                <input type="submit" value="Já recebi" class="btn btn-success">
+                            </div>
+                        </form>';
+            $bg_color = "bg-yellow";
+        } else {
+            $status_class = "received";
+            $status_text = "Entregue";
+            $button = "";
+            $bg_color = "bg-green";
+        }
+        // print_r($tran);
+        // echo "<br><br>";
+        // print_r($fetchProd);
+        // echo "<br><br>";
+        // print_r($fetchSalesman);
+        echo('<div class="row justify-content-center '.$bg_color.'" id="purchases-box">
+                <div class="col">
+                    <div class="row justify-content-center date">
+                        Data: '.$tran["tr_date"].'
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col align-items-center img-field"><img src="users/'.$fetchProd["img_dir"].'" height="100%"></div>
+                        <div class="col">
+                            <div class="row justify-content-center">
+                                '.$fetchProd['name'].'
+                            </div>
+                            <div class="row justify-content-center">
+                                Unidades: '.$tran["quantity"].'
+                            </div>
+                            <div class="row justify-content-center">
+                                Valor total: R$ '.$tran["total_price"].'
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row justify-content-center">
+                                Vendedor: '.$fetchSalesman["username"].'
+                            </div>
+                            <div class="row justify-content-center situation '.$status_class.'">
+                                Situação: '.$status_text.'
+                            </div>
+                        </div>
+                    </div>
+                    '.$button.'
+                </div>
+            </div>');
+    }
 ?>

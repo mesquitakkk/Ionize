@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 <title>Ionize - Histórico de compras</title>
 <!-- Required meta tags -->
@@ -8,15 +8,48 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/background-font.css">
+<link rel="stylesheet" href="css/purchases-historic.css">
 </head>
 <body>
 
 <?php
     session_start();
-    print_r($_SESSION);
+    include_once('back/util-functions.php');
+
+    if (isset($_SESSION['ionize_tb_credentials_email']) and isset($_SESSION['ionize_tb_credentials_password'])) {
+        include_once('template/navbar-aut.php');
+    } else {
+        session_clear();
+        header('location:index.php');
+    }
 ?>
 
 <h1>Histórico de compras</h1>
+
+<?php
+    include_once('back/conn.php');
+
+    // get transactions ids
+    $sqlTranIds = "SELECT * FROM tb_transaction WHERE fk_buyer_id='".$_SESSION['user_id']."'";
+    $queryTranIds = mysqli_query($conn, $sqlTranIds);
+    while($fetchTranIds = mysqli_fetch_assoc($queryTranIds)) {
+        // array_push($tranIds, $fetchTranIds['pk_tran_id']);
+        purchases_historic($fetchTranIds, $conn);
+    }
+    print_r($fetchTranIds);
+    // if (!$fetchTranIds) {
+    //     echo "Você ainda não realizou compras!";
+    // }
+
+    // show transactions
+    // foreach ($tranIds as $key => $value) {
+        // purchases_historic($value);
+    // }
+?>
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
