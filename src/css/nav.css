@@ -1,4 +1,4 @@
-a, a:visited, a:active {
+a, a:visited, a:active, a:link {
     color: white;
 }
 a:hover {

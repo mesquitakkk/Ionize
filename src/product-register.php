@@ -18,7 +18,6 @@
     include_once('back/util-functions.php');
 
     if (isset($_SESSION["ionize_tb_credentials_email"]) and isset($_SESSION["ionize_tb_credentials_password"])) {
-        include_once("template/navbar-aut.php");
         include_once('template/navbar-aut.php');
         include_once('back/conn.php');
     } else {
