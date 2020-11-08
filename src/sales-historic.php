@@ -34,10 +34,10 @@
         <nav class ="navbar" id="left-menu">
             <ul class ="nav navbar-nav">
                 <li class ="active nav-item">
-                    <a class ="nav-link" href="#"> <h4>Vendas</h4></a>
+                    <a class ="nav-link" href="sales-historic.php"> <h4>Vendas</h4></a>
                 </li>
                 <li class ="nav-item">
-                    <a class ="nav-link" href=""> p Enviar </a>
+                    <a class ="nav-link" href="sales-historic-to-send.php"> p Enviar </a>
                 </li>
                 <li class ="nav-item">
                 <a class ="nav-link" href="#"> em Trânsito </a>
@@ -57,7 +57,8 @@
                 $sqlTranName = "SELECT tb_product.name, tb_transaction.status
                                 FROM tb_product
                                 INNER JOIN tb_transaction 
-                                ON tb_product.pk_prod_id=tb_transaction.fk_product_id;";
+                                ON tb_product.pk_prod_id=tb_transaction.fk_product_id
+                                WHERE tb_product.fk_salesman_id='".$_SESSION['ionize_tb_user_pk_user_id']."';";
                 $queryTranName = mysqli_query($conn, $sqlTranName);
                 $arrayTranName = Array();
                 $to_send = 0;
