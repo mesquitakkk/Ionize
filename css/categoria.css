@@ -21,6 +21,7 @@
 }
 .card-img-top {
     width: auto;
+    max-width: 80%;
     height: 150px;
     margin-left: auto;
     margin-right: auto;
