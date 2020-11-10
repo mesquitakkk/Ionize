@@ -13,6 +13,11 @@
 }
 .card {
     margin-bottom: 20px;
+    /* opacity: 0.95; */
+}
+.card:hover {
+    /* opacity: 1; */
+    background-color: rgb(226, 255, 213);
 }
 .card-img-top {
     width: auto;
@@ -27,6 +32,7 @@
     width: 190px;
     /* background-color: yellow; */
     overflow: hidden;
+    color: black;
 }
 .btn .btn-primary {
     margin-left: auto;

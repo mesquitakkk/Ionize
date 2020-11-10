@@ -89,7 +89,11 @@
     </div>
 </div>
 
+<?php
 
+// print_r($_SESSION);
+
+?>
 
 <!-- Optional JavaScript -->
 <script>

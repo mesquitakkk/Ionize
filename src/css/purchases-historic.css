@@ -15,6 +15,9 @@ h1 {
 .bg-green {
     background-color: rgb(125, 255, 125);
 }
+.bg-red {
+    background-color: rgb(255, 153, 153);
+}
 
 .row {
     padding: 0px 10px;
