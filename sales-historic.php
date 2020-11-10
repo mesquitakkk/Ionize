@@ -69,7 +69,7 @@
                         $to_send += 1;
                     } elseif ($fecthTranName['status'] == 'in_transit') {
                         $in_transit += 1;
-                    } else {
+                    } elseif ($fecthTranName['status'] == 'done') {
                         $done += 1;
                     }
                     array_push($arrayTranName, $fecthTranName);
