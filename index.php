@@ -53,7 +53,8 @@
 
         $sqlProd = "SELECT * 
                     FROM tb_product
-                    WHERE fk_category_id='".$categories[$rand_index]['pk_cat_id']."';";
+                    WHERE fk_category_id='".$categories[$rand_index]['pk_cat_id']."'
+                    AND stock>0;";
         $queryProd = mysqli_query($conn, $sqlProd) or die("MySQL Error: " . mysqli_error($conn));
 
         // rand products
