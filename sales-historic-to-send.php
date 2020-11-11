@@ -37,13 +37,13 @@
                     <a class ="nav-link" href="sales-historic.php"> <h4>Vendas</h4></a>
                 </li>
                 <li class ="active nav-item">
-                    <a class ="nav-link" href=""> p Enviar </a>
+                    <a class ="nav-link" href="sales-historic-to-send.php"> p Enviar </a>
                 </li>
                 <li class ="nav-item">
                 <a class ="nav-link" href="sales-historic-in-transit.php"> em Trânsito </a>
                 </li>
                 <li class ="nav-item">
-                    <a class ="nav-link" href="#"> Concluídas </a>
+                    <a class ="nav-link" href="sales-historic-done.php"> Concluídas </a>
                 </li>
             </ul>
         </nav>

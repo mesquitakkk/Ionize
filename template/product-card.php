@@ -72,6 +72,27 @@
         </div>
         ');
     }
+    function done_card($tran) {
+        echo('
+        <div class="to-send-box row bg-green">
+            <div class="col">
+                <div class="row"><img src="users/'.$tran["img_dir"].'" class="box-img"></div>
+                <div class="row">'.$tran["quantity"].' unidade(s)</div>
+                <div class="row">R$ '.$tran["total_price"].'</div>
+            </div>
+            <div class="col">
+                <div class="row">'.$tran["name"].'</div>
+                <div class="row">Comprador: '.$tran["username"].'</div>
+            </div>
+            <div class="col">
+                <div class="row align-text">Endereço de entrega: '.$tran["user_address"].'</div>
+            </div>
+            <div class="row justify-content-around btn-box">
+                
+            </div>
+        </div>
+        ');
+    }
 ?>
 
 <!-- <form action="back/try-send-prod.php" method="POST">
