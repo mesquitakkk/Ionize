@@ -36,11 +36,11 @@
                 <li class ="nav-item">
                     <a class ="nav-link" href="sales-historic.php"> <h4>Vendas</h4></a>
                 </li>
-                <li class ="active nav-item">
-                    <a class ="nav-link" href=""> p Enviar </a>
-                </li>
                 <li class ="nav-item">
-                <a class ="nav-link" href="sales-historic-in-transit.php"> em Trânsito </a>
+                    <a class ="nav-link" href="sales-historic-to-send.php"> p Enviar </a>
+                </li>
+                <li class ="active nav-item">
+                <a class ="nav-link" href="#"> em Trânsito </a>
                 </li>
                 <li class ="nav-item">
                     <a class ="nav-link" href="#"> Concluídas </a>
@@ -52,6 +52,7 @@
         <div id="content-box">
             <?php
                 include_once('back/conn.php');
+                include_once('template/product-card.php');
 
                 // get transactions and your status
                 $sqlTran = "SELECT tb_transaction.pk_tran_id, tb_user.username, tb_user.user_address, tb_product.name,
@@ -59,13 +60,13 @@
                             FROM tb_user
                             INNER JOIN tb_transaction ON tb_user.pk_user_id=tb_transaction.fk_buyer_id
                             INNER JOIN tb_product ON tb_transaction.fk_product_id=tb_product.pk_prod_id
-                            WHERE tb_transaction.status='to_send' and tb_transaction.fk_seller_id='".$_SESSION['ionize_tb_user_pk_user_id']."';";
+                            WHERE tb_transaction.status='in_transit' and tb_transaction.fk_seller_id='".$_SESSION['ionize_tb_user_pk_user_id']."';";
 
                 $queryTran = mysqli_query($conn, $sqlTran) or die('MySQL Error: ' . mysqli_error($conn));
 
                 // generating to-send cards
                 while($fetchTran = mysqli_fetch_assoc($queryTran)) {
-                    to_send_card($fetchTran);
+                    in_transit_card($fetchTran);
                     // print_r($fetchTran);
                 }
             ?>
