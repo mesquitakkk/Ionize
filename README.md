@@ -2,7 +2,10 @@
   
 ## Projeto Integrador (Trabalho de fim acadêmico)  
 
-O Projeto Ionize consiste em um site de compra e vendas de produtos.
+O Projeto Ionize consiste em um site de compra e vendas de produtos (como o mercado livre).  
+  
+Entra lá, coloca dinheiro infinito e venda coisas bizarras:  
+[ionize](http://ionize.gearhostpreview.com)
 
 ***
 
