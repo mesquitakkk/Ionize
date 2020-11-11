@@ -1,3 +1,3 @@
 *.sql
 db
-users
+users/*
