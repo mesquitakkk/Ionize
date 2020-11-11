@@ -39,10 +39,10 @@
                 <li class ="nav-item">
                     <a class ="nav-link" href="sales-historic-to-send.php"> p Enviar </a>
                 </li>
-                <li class ="active nav-item">
+                <li class ="nav-item">
                 <a class ="nav-link" href="sales-historic-in-transit.php"> em Trânsito </a>
                 </li>
-                <li class ="nav-item">
+                <li class ="active nav-item">
                     <a class ="nav-link" href="sales-historic-done.php"> Concluídas </a>
                 </li>
             </ul>
@@ -60,13 +60,13 @@
                             FROM tb_user
                             INNER JOIN tb_transaction ON tb_user.pk_user_id=tb_transaction.fk_buyer_id
                             INNER JOIN tb_product ON tb_transaction.fk_product_id=tb_product.pk_prod_id
-                            WHERE tb_transaction.status='in_transit' and tb_transaction.fk_seller_id='".$_SESSION['ionize_tb_user_pk_user_id']."';";
+                            WHERE tb_transaction.status='done' and tb_transaction.fk_seller_id='".$_SESSION['ionize_tb_user_pk_user_id']."';";
 
                 $queryTran = mysqli_query($conn, $sqlTran) or die('MySQL Error: ' . mysqli_error($conn));
 
                 // generating to-send cards
                 while($fetchTran = mysqli_fetch_assoc($queryTran)) {
-                    in_transit_card($fetchTran);
+                    done_card($fetchTran);
                     // print_r($fetchTran);
                 }
             ?>
