@@ -12,7 +12,7 @@
 #main-box {
     background-color: rgb(32, 32, 32);
     width: 55%;
-    margin: 0px auto;
+    margin: 30px auto;
     border-radius: 20px;
     box-shadow: 3px 4px black;
     color: white;
@@ -57,4 +57,7 @@ h1 {
 .btn-box, .btn-box form {
     width: 100%;
     margin-top: 10px;
+}
+.bg-yellow {
+    background-color: rgb(255, 255, 168);
 }
