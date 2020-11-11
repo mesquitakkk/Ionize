@@ -29,7 +29,7 @@
     // get categories id
     $sqlAllCat = "SELECT pk_cat_id, name FROM tb_category";
     $queryAllCat = mysqli_query($conn, $sqlAllCat);
-    $catIds = Array();
+    $categories = Array();
 
     while ($cat = mysqli_fetch_assoc($queryAllCat)) {
 
@@ -40,28 +40,57 @@
         $query = mysqli_query($conn, $sql);
 
         if ($query->num_rows > 0) {
-            echo('
-                <div class="box-container">
-                    <div class="row justify-content-center">
-                        <div class="col">
-                            <h1 class="title">
-                                '.$cat["name"].'
-                            </h1>
-                        </div>
-                    </div>
-                    
-                    <div class="row justify-content-start">
-                        ');
-            // show product cards
-            while($fetchProd = mysqli_fetch_assoc($query)) {
-                echo('<div class="col-3">'.prod_card_sale($conn, $fetchProd["pk_prod_id"]).'</div>');
-            }
-            echo('
-                    </div>
-                </div>
-            ');
+            array_push($categories, $cat);
         }
     }
+    // print_r($categories);
+    // show random categories
+    while (count($categories) > 0) { 
+        $rand_index = array_rand($categories);
+
+        // get products
+
+        $sqlProd = "SELECT * 
+                    FROM tb_product
+                    WHERE fk_category_id='".$categories[$rand_index]['pk_cat_id']."';";
+        $queryProd = mysqli_query($conn, $sqlProd) or die("MySQL Error: " . mysqli_error($conn));
+
+        // rand products
+        $products = Array();
+        while($fetchProd = mysqli_fetch_assoc($queryProd)) {
+            array_push($products, $fetchProd);
+        }
+
+        echo('
+            <div class="box-container">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <h1 class="title">
+                            '.$categories[$rand_index]["name"].'
+                        </h1>
+                    </div>
+                </div>
+                
+                <div class="row justify-content-start">
+                    ');
+        // show product cards
+        while(count($products) > 0) {
+            $rand_prod_i = array_rand($products, 1);
+            // print_r($products);
+            echo('<div class="col-3">'.prod_card_sale($conn, $products[$rand_prod_i]['pk_prod_id']).'</div>');
+
+            unset($products[$rand_prod_i]);
+            
+        }
+        echo('
+                </div>
+            </div>
+        ');
+        
+        unset($categories[$rand_index]);
+    }
+
+    
     
     // print_r($catIds);
 
