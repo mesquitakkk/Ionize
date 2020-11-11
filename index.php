@@ -35,7 +35,8 @@
 
         $sql = "SELECT pk_prod_id
                 FROM tb_product 
-                WHERE fk_category_id='".$cat['pk_cat_id']."' and fk_salesman_id!='$user_id';";
+                WHERE fk_category_id='".$cat['pk_cat_id']."' and fk_salesman_id!='$user_id'
+                AND stock>0;";
 
         $query = mysqli_query($conn, $sql);
 
