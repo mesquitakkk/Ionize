@@ -17,7 +17,7 @@
 }
 .card:hover {
     /* opacity: 1; */
-    background-color: rgb(226, 255, 213);
+    background-color: rgb(243, 243, 243);
 }
 .card-img-top {
     width: auto;

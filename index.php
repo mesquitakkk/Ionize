@@ -10,16 +10,60 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/background-font.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/categoria.css">
     </head>
 <body>
 
 <?php 
     session_start();
+    include_once("template/product-card.php");
+    // include_once("back/conn.php");
     if (isset($_SESSION["ionize_tb_credentials_email"]) and isset($_SESSION["ionize_tb_credentials_password"])) {
         include_once("template/navbar-aut.php");
+        $user_id = $_SESSION["ionize_tb_user_pk_user_id"];
     } else {
         include_once('template/navbar-travel.php');
+        $user_id = 0;
     }
+
+    // get categories id
+    $sqlAllCat = "SELECT pk_cat_id, name FROM tb_category";
+    $queryAllCat = mysqli_query($conn, $sqlAllCat);
+    $catIds = Array();
+
+    while ($cat = mysqli_fetch_assoc($queryAllCat)) {
+
+        $sql = "SELECT pk_prod_id
+                FROM tb_product 
+                WHERE fk_category_id='".$cat['pk_cat_id']."' and fk_salesman_id!='$user_id';";
+
+        $query = mysqli_query($conn, $sql);
+
+        if ($query->num_rows > 0) {
+            echo('
+                <div class="box-container">
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <h1 class="title">
+                                '.$cat["name"].'
+                            </h1>
+                        </div>
+                    </div>
+                    
+                    <div class="row justify-content-start">
+                        ');
+            // show product cards
+            while($fetchProd = mysqli_fetch_assoc($query)) {
+                echo('<div class="col-3">'.prod_card_sale($conn, $fetchProd["pk_prod_id"]).'</div>');
+            }
+            echo('
+                    </div>
+                </div>
+            ');
+        }
+    }
+    
+    // print_r($catIds);
 
     // include_once('back/conn.php');
     // echo "<br><br><br>";
